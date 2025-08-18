@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Road Fire Sketch</title>
+  <style>
+    body {
+      background: #222;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .scene {
+      position: relative;
+      width: 400px;
+      height: 300px;
+      background: linear-gradient(to top, #444 80%, #6b87b5 100%);
+      border-radius: 20px;
+      box-shadow: 0 8px 32px #0008;
+      overflow: hidden;
+    }
+    .road {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 100px;
+      height: 300px;
+      background: linear-gradient(to bottom, #555 0%, #222 100%);
+      transform: translateX(-50%) skewY(8deg);
+      border-radius: 0 0 60px 60px;
+      z-index: 1;
+    }
+    .lines {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      width: 10px;
+      height: 220px;
+      transform: translateX(-50%) skewY(8deg);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .line {
+      width: 8px;
+      height: 30px;
+      background: #ffe97d;
+      margin: 10px 0;
+      border-radius: 4px;
+    }
+    .fire {
+      position: absolute;
+      bottom: 60px;
+      left: 50%;
+      width: 120px;
+      height: 70px;
+      transform: translateX(-50%);
+      z-index: 3;
+      pointer-events: none;
+      display: flex;
+      justify-content: space-around;
+    }
+    .flame {
+      width: 24px;
+      height: 70px;
+      background: radial-gradient(ellipse at center 60%, #ff0 0 35%, #f90 60%, #f00 100%);
+      border-radius: 50% 50% 20% 20% / 80% 80% 100% 100%;
+      opacity: 0.9;
+      animation: flicker 1s infinite alternate;
+    }
+    .flame:nth-child(2) {
+      width: 34px;
+      height: 80px;
+      background: radial-gradient(ellipse at center 60%, #fff 0 20%, #ff0 40%, #f90 60%, #f00 100%);
+      opacity: 1;
+      animation-delay: 0.3s;
+    }
+    .flame:nth-child(3) {
+      width: 20px;
+      height: 65px;
+      background: radial-gradient(ellipse at center 60%, #fff 0 10%, #ff0 30%, #f90 60%, #f00 100%);
+      opacity: 0.75;
+      animation-delay: 0.6s;
+    }
+    @keyframes flicker {
+      0% { transform: scaleY(1) translateY(0); opacity: 0.8; }
+      60% { opacity: 1; }
+      100% { transform: scaleY(1.05) translateY(-6px); opacity: 0.6; }
+    }
+  </style>
+</head>
+<body>
+  <div class="scene"> i
+    <div class="road"></div>
+    <div class="lines">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+    <div class="fire">
+      <div class="flame"></div>
+      <div class="flame"></div>
+      <div class="flame"></div>
+    </div>
+  </div>
+</body>
+</html>
